@@ -42,7 +42,6 @@ int main()
 			case '^':
 				a = UP;
 				break;
-
 			case '_':
 				if (!sk.empty())
 				{
@@ -53,7 +52,6 @@ int main()
 					sk.pop();
 				}
 				break;
-
 			case '|':
 				if (!sk.empty())
 				{
@@ -64,20 +62,109 @@ int main()
 					sk.pop();
 				}
 				break;
-
 			case '#':
 				skip = true;
 				break;
-
 			case '@':
 				return 0;
-
+			case '&':
+				int input;
+				std::cin >> input;
+				sk.push(input);
+				break;
+			case '~':
+				char input;
+				sk.push(int(input));
+				break;
+			case '.':
+				std::cout << sk.top() << " ";
+				sk.pop();
+				break;
+			case ',':
+				std::cout << char(sk.top());
+				sk.pop();
+				break;
+			case '+':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				sk.push(x + y);
+				break;
+			case '-':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				sk.push(y - x);
+				break;
+			case '/':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				sk.push(y / x);
+				break;
+			case '*':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				sk.push(y * x);
+				break;
+			case '%':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				sk.push(y % x);
+				break;
+			case '`':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				sk.push(y > x ? 1 : 0);
+				break;
+			case '!':
+				int x = sk.top();
+				sk.pop();
+				sk.push(x == 0 ? 1 : 0);
+				break;
+			case ':':
+				int x = sk.top();
+				sk.push(x);
+				break;
+			case '\\':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				sk.push(x);
+				sk.push(y);
+				break;
+			case '$':
+				sk.pop();
+			case 'g':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				char code_char = code[x][y];
+				sk.push(int(code_char));
+			case 'p':
+				int x = sk.top();
+				sk.pop();
+				int y = sk.top();
+				sk.pop();
+				int z = sk.top();
+				sk.pop();
+				code[x][y] = char(z);
 			default:
 				break;
 			}
 		}
 
-		// 移動処理
 		if (a == UP)
 			ptr_x = (ptr_x + 24) % 25;
 		else if (a == DOWN)
