@@ -106,27 +106,28 @@ int main(int argc, char **argv) {
         sk.pop();
         y = sk.top();
         sk.pop();
-        switch (c) {
-        case '+':
-          sk.push(y + x);
-          break;
-        case '-':
-          sk.push(y - x);
-          break;
-        case '*':
-          sk.push(y * x);
-          break;
-        case '/':
-          sk.push(x == 0 ? 0 : y / x);
-          break;
-        case '%':
-          sk.push(x == 0 ? 0 : y % x);
-          break;
-        case '`':
-          sk.push(y > x ? 1 : 0);
-          break;
-        }
-        break;
+				sk.push(y>x?1:0);
+        // switch (c) {
+        // case '+':
+        //   sk.push(y + x);
+        //   break;
+        // case '-':
+        //   sk.push(y - x);
+        //   break;
+        // case '*':
+        //   sk.push(y * x);
+        //   break;
+        // case '/':
+        //   sk.push(x == 0 ? 0 : y / x);
+        //   break;
+        // case '%':
+        //   sk.push(x == 0 ? 0 : y % x);
+        //   break;
+        // case '`':
+        //   sk.push(y > x ? 1 : 0);
+        //   break;
+        // }
+        // break;
       }
       case '!':
         x = sk.top();
