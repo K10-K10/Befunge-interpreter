@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
 			skip = false;
 			continue;
 		}
-    if (quote) {
+    else if (quote) {
       if (c == '"') {
         quote = false;
       } else {
