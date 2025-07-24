@@ -2,9 +2,9 @@ name: Test Befunge Interpreter
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    paths:
+      - 'main.cpp'
+      - '.github/workflows/scripts/tests/**'
 
 jobs:
   build-and-test:
