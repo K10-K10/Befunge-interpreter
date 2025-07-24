@@ -48,7 +48,7 @@ build code
 ```
 g++ main.cpp -o bef
 ```
-cp `befu` in `bin`
+cp `bef` in `bin`
 ```
 sudo cp bef ~/.local/bin/bef
 ```
