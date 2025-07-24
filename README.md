@@ -32,8 +32,18 @@
 
 # Install 
 clone repository
+
+## Using ssh
 ```
 git clone git@github.com/K10-K10/Befunge-interpreter
+```
+
+## Using https
+```
+git clone https://github.com/K10-K10/Befunge-interpreter
+```
+
+## Build
 ```
 build code
 ```
