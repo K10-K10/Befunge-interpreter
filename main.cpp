@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	const int y_max = 80;
+	constexpr int y_max = 80;
 	std::vector<std::string> code;
 	std::string line;
 	while (std::getline(file, line))
