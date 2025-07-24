@@ -10,6 +10,7 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    name: Test Befunge Interpreter
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
