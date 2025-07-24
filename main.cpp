@@ -4,8 +4,10 @@
 
 int main()
 {
+	int x_max, y_max;
+	std::cin >> x_max >> y_max;
 	std::stack<int> sk;
-	char code[25][80];
+	std::string code[x_max];
 	int ptr_x = 0, ptr_y = 0;
 	int x = 0, y = 0, z = 0;
 	char input_char, code_char;
@@ -19,20 +21,20 @@ int main()
 		DOWN
 	};
 	Direction a = RIGHT;
-	for (int i = 0; i < 25; i++)
+	// for (int i = 0; i < x_max; i++)
+	// {
+	// 	for (int j = 0; j < 80; j++)
+	// 	{
+	// 		std::cin >> code[i][j];
+	// 	}
+	// }
+	for (int i = 0; i < x_max; i++)
 	{
-		for (int j = 0; j < 80; j++)
-		{
-			std::cin >> code[i][j];
-		}
+		std::getline(std::cin, code[i]);
 	}
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < x_max; i++)
 	{
-		for (int j = 0; j < 80; j++)
-		{
-			std::cout << code[i][j];
-		}
-		std::cout << std::endl;
+		std::cout << code << std::endl;
 	}
 	while (true)
 	{
@@ -220,13 +222,13 @@ int main()
 		}
 
 		if (a == UP)
-			ptr_x = (ptr_x + 24) % 25;
+			ptr_x = (ptr_x + x_max - 1) % x_max;
 		else if (a == DOWN)
-			ptr_x = (ptr_x + 1) % 25;
+			ptr_x = (ptr_x + 1) % x_max;
 		else if (a == RIGHT)
-			ptr_y = (ptr_y + 1) % 80;
+			ptr_y = (ptr_y + 1) % y_max;
 		else if (a == LEFT)
-			ptr_y = (ptr_y + 79) % 80;
+			ptr_y = (ptr_y + y_max - 1) % y_max;
 		std::cout << ptr_x << " " << ptr_y << std::endl;
 		if (skip)
 			skip = false;
