@@ -93,6 +93,7 @@ int main(int argc, char **argv)
 				skip = true;
 				break;
 			case '@':
+				std::cout << std::endl;
 				return 0;
 			case '"':
 				quote = true;
@@ -215,4 +216,5 @@ int main(int argc, char **argv)
 		if (skip)
 			skip = false;
 	}
+	return 0;
 }
