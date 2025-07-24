@@ -4,8 +4,8 @@
 
 int main()
 {
-	int x_max, y_max;
-	std::cin >> x_max >> y_max;
+	int x_max, y_max = 80;
+	std::cin >> x_max;
 	std::stack<int> sk;
 	std::string code[x_max];
 	int ptr_x = 0, ptr_y = 0;
@@ -28,13 +28,13 @@ int main()
 	// 		std::cin >> code[i][j];
 	// 	}
 	// }
+	std::cin.ignore();
+
 	for (int i = 0; i < x_max; i++)
 	{
 		std::getline(std::cin, code[i]);
-	}
-	for (int i = 0; i < x_max; i++)
-	{
-		std::cout << code << std::endl;
+		while (code[i].length() < y_max)
+			code[i] += ' ';
 	}
 	while (true)
 	{
@@ -87,6 +87,7 @@ int main()
 					sk.push(input_int);
 					break;
 				case '~':
+					std::cin >> input_char;
 					sk.push(int(input_char));
 					break;
 				case '.':
@@ -176,6 +177,9 @@ int main()
 					sk.pop();
 					code[x][y] = char(z);
 					break;
+				case '"':
+					quote = true;
+					break;
 				case '1':
 					sk.push(1);
 					break;
@@ -229,7 +233,6 @@ int main()
 			ptr_y = (ptr_y + 1) % y_max;
 		else if (a == LEFT)
 			ptr_y = (ptr_y + y_max - 1) % y_max;
-		std::cout << ptr_x << " " << ptr_y << std::endl;
 		if (skip)
 			skip = false;
 	}
