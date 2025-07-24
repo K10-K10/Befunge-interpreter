@@ -3,6 +3,7 @@
 #include <stack>
 #include <vector>
 #include <fstream>
+#include <random>
 
 int main(int argc, char **argv)
 {
@@ -30,6 +31,7 @@ int main(int argc, char **argv)
 	}
 	int x_max = code.size();
 
+	std::mt19937 gen(time(NULL));
 	std::stack<int> sk;
 	int ptr_x = 0, ptr_y = 0;
 	int x = 0, y = 0, z = 0;
@@ -190,6 +192,28 @@ int main(int argc, char **argv)
 				if (x >= 0 && x < x_max && y >= 0 && y < y_max)
 					code[x][y] = char(z);
 				break;
+			case '?':
+			{
+
+				std::uniform_int_distribution<> dis(1, 4);
+				int random_number = dis(gen);
+				switch (random_number)
+				{
+				case 1:
+					a = UP;
+					break;
+				case 2:
+					a = RIGHT;
+					break;
+				case 3:
+					a = LEFT;
+					break;
+				case 4:
+					a = DOWN;
+					break;
+				}
+				break;
+			}
 			default:
 				if (c >= '0' && c <= '9')
 					sk.push(c - '0');
