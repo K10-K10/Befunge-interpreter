@@ -139,7 +139,7 @@ int main(int argc, char **argv) {
           sk.push(sk.top());
         break;
       case '\\':
-        x = sk.top();
+        x = sk.top(); // TODO: Do we need to check whether it is empty over here?
         sk.pop();
         y = sk.empty() ? 0 : sk.top();
         if (!sk.empty())
