@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
         sk.pop();
         y = sk.top();
         sk.pop();
-				sk.push(y>x?1:0);
+        sk.push(y > x ? 1 : 0);
         // switch (c) {
         // case '+':
         //   sk.push(y + x);
@@ -139,7 +139,8 @@ int main(int argc, char **argv) {
           sk.push(sk.top());
         break;
       case '\\':
-        x = sk.top(); // TODO: Do we need to check whether it is empty over here?
+        x = sk.top(); // TODO: Do we need to check whether it is empty over
+                      // here?
         sk.pop();
         y = sk.empty() ? 0 : sk.top();
         if (!sk.empty())
