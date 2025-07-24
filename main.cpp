@@ -39,11 +39,9 @@ int main(int argc, char **argv) {
   Direction a = RIGHT;
   while (true) {
     char c = code[ptr_x][ptr_y];
-		if (skip) {
-			skip = false;
-			continue;
-		}
-    else if (quote) {
+    if (skip) {
+      skip = false;
+    } else if (quote) {
       if (c == '"') {
         quote = false;
       } else {
