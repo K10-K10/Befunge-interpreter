@@ -39,6 +39,10 @@ int main(int argc, char **argv) {
   Direction a = RIGHT;
   while (true) {
     char c = code[ptr_x][ptr_y];
+		if (skip) {
+			skip = false;
+			continue;
+		}
     if (quote) {
       if (c == '"') {
         quote = false;
@@ -213,9 +217,6 @@ int main(int argc, char **argv) {
       ptr_y = (ptr_y + y_max - 1) % y_max;
       break;
     }
-
-    if (skip)
-      skip = false;
   }
   return 0;
 }
