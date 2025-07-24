@@ -21,5 +21,4 @@ jobs:
 
       - name: Run test script
         run: |
-          cd .github/workflows/scripts
-          ./test.sh
+          .github/workflows/scripts/test.sh
