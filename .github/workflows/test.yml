@@ -5,6 +5,7 @@ on:
     paths:
       - 'main.cpp'
       - '.github/workflows/scripts/tests/**'
+  workflow_dispatch:
 
 jobs:
   build-and-test:
