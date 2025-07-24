@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
         y = sk.top();
         sk.pop();
         sk.push(y > x ? 1 : 0);
-        // switch (c) {
+        // switch (c) { // TODO Check if this is the correct spot
         // case '+':
         //   sk.push(y + x);
         //   break;
