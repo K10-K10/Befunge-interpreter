@@ -29,3 +29,27 @@
 |~	|Ask user for a character and push its ASCII value|
 |@	|End program|
 |(space)|	No-op. Does nothing|
+
+# Install 
+clone repository
+```
+git clone git@github.com/K10-K10/Befunge-interpreter
+```
+build code
+```
+g++ main.cpp -o bef
+```
+cp `befu` in `bin`
+```
+sudo cp bef ~/.local/bin/bef
+```
+
+add path in `~/.zshrc`
+```
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+# run
+```
+bef file.bef
+```
