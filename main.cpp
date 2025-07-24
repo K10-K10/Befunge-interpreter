@@ -180,6 +180,9 @@ int main()
 				case '"':
 					quote = true;
 					break;
+				case '0':
+					sk.push(0);
+					break;
 				case '1':
 					sk.push(1);
 					break;
