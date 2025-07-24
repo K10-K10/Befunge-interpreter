@@ -1,0 +1,26 @@
+name: Test Befunge Interpreter
+
+on:
+  push:
+    paths:
+      - 'main.cpp'
+      - '.github/workflows/scripts/tests/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    name: Test Befunge Interpreter
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Build
+        run: g++ -std=c++11 -o bef main.cpp
+
+      - name: Run test script
+        run: |
+          .github/workflows/scripts/test.sh
