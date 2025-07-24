@@ -21,7 +21,7 @@
 |\\ |Swap two values on top of the stack|
 |$	|Pop value from the stack and discard it|
 |.	|Pop value and output as an integer followed by a space|
-||,|	Pop value and output as ASCII character|
+|,|	Pop value and output as ASCII character|
 |#|	Bridge: Skip next cell|
 |p	|A "put" call (a way to store a value for later use). Pop y, x, and v, then change the character at (x,y) in the program to the character with ASCII value v|
 |g	|A "get" call (a way to retrieve data in storage). Pop y and x, then push ASCII value of the character at that position in the program|
@@ -32,14 +32,23 @@
 
 # Install 
 clone repository
+
+## Using ssh
 ```
 git clone git@github.com/K10-K10/Befunge-interpreter
 ```
+
+## Using https
+```
+git clone https://github.com/K10-K10/Befunge-interpreter
+```
+
+## Build
 build code
 ```
 g++ main.cpp -o bef
 ```
-cp `befu` in `bin`
+cp `bef` in `bin`
 ```
 sudo cp bef ~/.local/bin/bef
 ```
@@ -49,7 +58,7 @@ add path in `~/.zshrc`
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-# run
+# Run
 ```
 bef file.bef
 ```
