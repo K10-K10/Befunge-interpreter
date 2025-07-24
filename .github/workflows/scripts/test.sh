@@ -8,7 +8,7 @@ for file in *.in; do
     echo "Testing $filename"
     $bin $file > $filename.out.swap
     flag=0
-    if diff $filename.out.swap $filename.out; then
+    if diff $filename.out.swap $filename.out > /dev/null; then
         echo "Test $filename passed"
     else
         echo "Test $filename failed"
