@@ -21,7 +21,7 @@
 |\\ |Swap two values on top of the stack|
 |$	|Pop value from the stack and discard it|
 |.	|Pop value and output as an integer followed by a space|
-||,|	Pop value and output as ASCII character|
+|,|	Pop value and output as ASCII character|
 |#|	Bridge: Skip next cell|
 |p	|A "put" call (a way to store a value for later use). Pop y, x, and v, then change the character at (x,y) in the program to the character with ASCII value v|
 |g	|A "get" call (a way to retrieve data in storage). Pop y and x, then push ASCII value of the character at that position in the program|
