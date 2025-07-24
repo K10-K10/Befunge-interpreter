@@ -44,7 +44,6 @@ git clone https://github.com/K10-K10/Befunge-interpreter
 ```
 
 ## Build
-```
 build code
 ```
 g++ main.cpp -o bef
