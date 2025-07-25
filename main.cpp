@@ -1,9 +1,9 @@
-#include <iostream>
-#include <string>
-#include <stack>
-#include <vector>
 #include <fstream>
+#include <iostream>
 #include <random>
+#include <stack>
+#include <string>
+#include <vector>
 
 int main(int argc, char **argv)
 {
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	const int y_max = 80;
+	constexpr int y_max = 80;
 	std::vector<std::string> code;
 	std::string line;
 	while (std::getline(file, line))
@@ -50,7 +50,11 @@ int main(int argc, char **argv)
 	while (true)
 	{
 		char c = code[ptr_x][ptr_y];
-		if (quote)
+		if (skip)
+		{
+			skip = false;
+		}
+		else if (quote)
 		{
 			if (c == '"')
 			{
@@ -117,39 +121,47 @@ int main(int argc, char **argv)
 				sk.pop();
 				break;
 			case '+':
-			case '-':
-			case '*':
-			case '/':
-			case '%':
-			case '`':
-			{
 				x = sk.top();
 				sk.pop();
 				y = sk.top();
 				sk.pop();
-				switch (c)
-				{
-				case '+':
-					sk.push(y + x);
-					break;
-				case '-':
-					sk.push(y - x);
-					break;
-				case '*':
-					sk.push(y * x);
-					break;
-				case '/':
-					sk.push(x == 0 ? 0 : y / x);
-					break;
-				case '%':
-					sk.push(x == 0 ? 0 : y % x);
-					break;
-				case '`':
-					sk.push(y > x ? 1 : 0);
-					break;
-				}
+				sk.push(y + x);
 				break;
-			}
+			case '-':
+				x = sk.top();
+				sk.pop();
+				y = sk.top();
+				sk.pop();
+				sk.push(y - x);
+				break;
+			case '*':
+				x = sk.top();
+				sk.pop();
+				y = sk.top();
+				sk.pop();
+				sk.push(y * x);
+				break;
+			case '/':
+				x = sk.top();
+				sk.pop();
+				y = sk.top();
+				sk.pop();
+				sk.push(x == 0 ? 0 : y / x);
+				break;
+			case '%':
+				x = sk.top();
+				sk.pop();
+				y = sk.top();
+				sk.pop();
+				sk.push(x == 0 ? 0 : y % x);
+				break;
+			case '`':
+				x = sk.top();
+				sk.pop();
+				y = sk.top();
+				sk.pop();
+				sk.push(y > x ? 1 : 0);
+				break;
 			case '!':
 				x = sk.top();
 				sk.pop();
@@ -160,7 +172,8 @@ int main(int argc, char **argv)
 					sk.push(sk.top());
 				break;
 			case '\\':
-				x = sk.top();
+				x = sk.top(); // TODO: Do we need to check whether it is empty over
+											// here?
 				sk.pop();
 				y = sk.empty() ? 0 : sk.top();
 				if (!sk.empty())
@@ -236,9 +249,6 @@ int main(int argc, char **argv)
 			ptr_y = (ptr_y + y_max - 1) % y_max;
 			break;
 		}
-
-		if (skip)
-			skip = false;
 	}
 	return 0;
 }
