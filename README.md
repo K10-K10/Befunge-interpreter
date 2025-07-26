@@ -1,6 +1,9 @@
 # Befunge-interpreter
-|||
----|---
+
+## Char list
+
+|char|command|
+|---|---|
 |0-9	|Push this number onto the stack.|
 |+	|Addition: Pop a and b, then push a+b|
 |-	|Subtraction: Pop a and b, then push b-a|
@@ -32,35 +35,44 @@
 
 [reference from wikipedia](https://ja.wikipedia.org/wiki/Befunge)
 
-# Install 
-clone repository
+## Install
 
-## Using ssh
-```
+1. Clone this repository.
+
+- ssh
+
+```bash
 git clone git@github.com/K10-K10/Befunge-interpreter
 ```
 
-## Using https
-```
+- https
+
+```bash
 git clone https://github.com/K10-K10/Befunge-interpreter
 ```
 
-## Build
-build code
-```
+2. Build
+
+Build code
+
+```bash
 g++ main.cpp -o bef
 ```
-cp `bef` in `bin`
-```
-sudo cp bef ~/.local/bin/bef
+
+3. Copy `bef` in `bin`
+
+```bash
+	sudo cp bef ~/.local/bin/bef
 ```
 
-add path in `~/.zshrc`
-```
-export PATH="$HOME/.local/bin:$PATH"
+4. Add path in ~/.zshrc
+
+```bash
+	export PATH="$HOME/.local/bin:$PATH"
 ```
 
 # Run
+
 ```
 bef file.bef
 ```
