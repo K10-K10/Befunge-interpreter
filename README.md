@@ -62,13 +62,13 @@ g++ main.cpp -o bef
 3. Copy `bef` in `bin`
 
 ```bash
-	sudo cp bef ~/.local/bin/bef
+sudo cp bef ~/.local/bin/bef
 ```
 
 4. Add path in ~/.zshrc
 
 ```bash
-	export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 ```
 
 # Run
